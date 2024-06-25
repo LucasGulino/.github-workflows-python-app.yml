@@ -28,5 +28,28 @@ jobs:
 
     - name: Deploy
       run: |
-        # Add your deployment steps here
+        # Add your dmkdir -p .github/workflows
+echo 'name: Python application' > .github/workflows/python-app.yml
+echo 'on: [push, pull_request]' >> .github/workflows/python-app.yml
+echo 'jobs:' >> .github/workflows/python-app.yml
+echo '  build:' >> .github/workflows/python-app.yml
+echo '    runs-on: ubuntu-latest' >> .github/workflows/python-app.yml
+echo '    steps:' >> .github/workflows/python-app.yml
+echo '    - uses: actions/checkout@v2' >> .github/workflows/python-app.yml
+echo '    - name: Set up Python' >> .github/workflows/python-app.yml
+echo '      uses: actions/setup-python@v2' >> .github/workflows/python-app.yml
+echo "      with: \n        python-version: '3.x'" >> .github/workflows/python-app.yml
+echo '    - name: Install dependencies' >> .github/workflows/python-app.yml
+echo '      run: |' >> .github/workflows/python-app.yml
+echo '        python -m pip install --upgrade pip' >> .github/workflows/python-app.yml
+echo '        pip install pytest' >> .github/workflows/python-app.yml
+echo '    - name: Test with pytest' >> .github/workflows/python-app.yml
+echo '      run: |' >> .github/workflows/python-app.yml
+echo '        pytest' >> .github/workflows/python-app.yml
+
+git add .github/workflows/python-app.yml
+git commit -m "Ajout du workflow GitHub Actions pour CI"
+git push
+
+eployment steps here
         echo "Deploying the app..."
